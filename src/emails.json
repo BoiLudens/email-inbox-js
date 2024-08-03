@@ -1,0 +1,28 @@
+{
+  "emails": [
+    {
+      "to": "Narc McNarc",
+      "from": "Scrub McToot",
+      "subject": "We bout to implode chief",
+      "body": "so we need to talk about you being the dumb dumb",
+      "read": false,
+      "datetime": "04 Dec 1995 00:12:00 GMT"
+    },
+    {
+      "to": "Boop the Snoot",
+      "from": "Poop Scoop",
+      "subject": "HR Complaint",
+      "body": "you've got an HR Complaint against you come down to the office",
+      "read": false,
+      "datetime": "04 Dec 1996 00:12:00 GMT"
+    },
+    {
+      "to": "Boop the Snoot",
+      "from": "Boss Hoss",
+      "subject": "You're Fired",
+      "body": "we're letting you go",
+      "read": false,
+      "datetime": "04 Dec 1997 00:12:00 GMT"
+    }
+  ]
+}
