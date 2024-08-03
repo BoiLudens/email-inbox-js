@@ -1,6 +1,7 @@
 {
   "emails": [
     {
+      "id": 1,
       "to": "Narc McNarc",
       "from": "Scrub McToot",
       "subject": "We bout to implode chief",
@@ -9,6 +10,7 @@
       "datetime": "04 Dec 1995 00:12:00 GMT"
     },
     {
+      "id": 2,
       "to": "Boop the Snoot",
       "from": "Poop Scoop",
       "subject": "HR Complaint",
@@ -17,6 +19,7 @@
       "datetime": "04 Dec 1996 00:12:00 GMT"
     },
     {
+      "id": 3,
       "to": "Boop the Snoot",
       "from": "Boss Hoss",
       "subject": "You're Fired",

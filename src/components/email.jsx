@@ -5,6 +5,7 @@ function Email({ email }) {
       <p>from: {email.from}</p>
       <h1>subject: {email.subject}</h1>
       <p>{email.body}</p>
+      <p>{email.id}</p>
     </div>
   );
 }

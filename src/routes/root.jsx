@@ -8,7 +8,7 @@ function Root() {
   const [email, setEmail] = useState(emailList[0]);
 
   function sortEmailListByDate(direction) {
-    const sortedEmailList = emailList;
+    const sortedEmailList = [...emailList];
     let sortMultiplier = 1;
     if (direction === "DESC") {
       sortMultiplier = -1;
@@ -23,13 +23,19 @@ function Root() {
         return 0;
       }
     });
-    console.log(sortedEmailList);
+
     setEmailList(sortedEmailList);
   }
 
-  function openEmail(index, emailEntry) {
-    emailList[index].read = true;
-    setEmail(emailEntry);
+  function deleteEmail(index) {
+    const filteredList = [...emailList];
+    filteredList.filter((email) => email.id !== index);
+  }
+
+  function openEmail(emailEntryId) {
+    const emailToUpdate = emailList.find((email) => email.id === emailEntryId);
+    emailToUpdate.read = true;
+    setEmail(emailToUpdate);
   }
 
   return (
@@ -45,13 +51,9 @@ function Root() {
         </div>
         <nav>
           <ul>
-            {emailList.map((emailEntry, index) => (
-              <li key={index}>
-                <EmailTab
-                  emailEntry={emailEntry}
-                  openEmail={openEmail}
-                  index={index}
-                />
+            {emailList.map((emailEntry) => (
+              <li key={emailEntry.id}>
+                <EmailTab emailEntry={emailEntry} openEmail={openEmail} />
               </li>
             ))}
           </ul>
