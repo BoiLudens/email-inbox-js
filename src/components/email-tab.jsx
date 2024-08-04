@@ -1,12 +1,27 @@
-function EmailTab({ emailEntry, openEmail }) {
+import { Button, ButtonGroup } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+
+function EmailTab({ emailEntry, openEmail, deleteEmail }) {
   return (
-    <button
-      style={emailEntry.read === false ? { color: "black" } : { color: "gray" }}
-      onClick={() => openEmail(emailEntry.id, emailEntry)}
-    >
-      <h3>{emailEntry.subject}</h3>
-      <p>{emailEntry.datetime}</p>
-    </button>
+    <ButtonGroup variant="contained" aria-label="Basic button group">
+      <Button
+        variant="contained"
+        style={
+          emailEntry.read === false ? { color: "black" } : { color: "gray" }
+        }
+        onClick={() => openEmail(emailEntry.id)}
+      >
+        <h3>{emailEntry.subject}</h3>
+        <p>{emailEntry.datetime}</p>
+      </Button>
+      <Button
+        variant="outlined"
+        startIcon={<DeleteIcon />}
+        onClick={() => deleteEmail(emailEntry.id)}
+      >
+        Delete
+      </Button>
+    </ButtonGroup>
   );
 }
 

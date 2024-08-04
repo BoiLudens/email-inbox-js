@@ -27,9 +27,9 @@ function Root() {
     setEmailList(sortedEmailList);
   }
 
-  function deleteEmail(index) {
-    const filteredList = [...emailList];
-    filteredList.filter((email) => email.id !== index);
+  function deleteEmail(emailEntryId) {
+    const filteredList = emailList.filter((email) => email.id !== emailEntryId);
+    setEmailList(filteredList);
   }
 
   function openEmail(emailEntryId) {
@@ -53,7 +53,11 @@ function Root() {
           <ul>
             {emailList.map((emailEntry) => (
               <li key={emailEntry.id}>
-                <EmailTab emailEntry={emailEntry} openEmail={openEmail} />
+                <EmailTab
+                  emailEntry={emailEntry}
+                  openEmail={openEmail}
+                  deleteEmail={deleteEmail}
+                />
               </li>
             ))}
           </ul>
