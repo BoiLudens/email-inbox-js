@@ -16,9 +16,7 @@ function Root() {
           throw new Error(`Response status: ${response.status}`);
         }
         const json = await response.json();
-        console.log(json);
         setEmailList(json.emails);
-        setEmail(emailList[0]);
       } catch (error) {
         console.error(error.message);
       }
@@ -84,7 +82,7 @@ function Root() {
         </nav>
       </div>
       <div id="detail">
-        <Email email={email} />
+        {email !== undefined ? <Email email={email} /> : null}
       </div>
     </>
   );
