@@ -1,11 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Email from "../components/email";
 import EmailTab from "../components/email-tab";
-import data from "../emails.json";
+// import data from "../emails.json";
 
 function Root() {
-  const [emailList, setEmailList] = useState(data.emails);
-  const [email, setEmail] = useState(emailList[0]);
+  const [emailList, setEmailList] = useState([]);
+  const [email, setEmail] = useState();
+  const url = "http://localhost:3000/emails";
+
+  useEffect(() => {
+    async function fetchEmail() {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`Response status: ${response.status}`);
+        }
+        const json = await response.json();
+        console.log(json);
+        setEmailList(json.emails);
+        setEmail(emailList[0]);
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
+    fetchEmail();
+    console.log(emailList);
+  }, []);
 
   function sortEmailListByDate(direction) {
     const sortedEmailList = [...emailList];
